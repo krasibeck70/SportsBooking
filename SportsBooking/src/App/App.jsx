@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, HashRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history } from '../_helpers';
@@ -10,6 +10,9 @@ import { LoginPage } from '../Components/LoginPage';
 import { RegisterPage } from '../Components/RegisterPage';
 import { Navbar } from "../Components/Navbar";
 import { Places } from '../Components/Places';
+import { Payments } from '../Components/Payments';
+import { Players } from '../Components/Players';
+import { User } from '../Components/User';
 
 
 class App extends React.Component {
@@ -27,14 +30,17 @@ class App extends React.Component {
         const { alert } = this.props;
         return (
             <div>
-
+                <Navbar></Navbar>
                 <Router history={history}>
                     <div>
-                        <Navbar></Navbar>
-                        <PrivateRoute exact path="/" component={HomePage} />
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
+                        <PrivateRoute exact path="/" component={HomePage} />
+                        <PrivateRoute exact path="/home" component={HomePage} />
                         <Route path="/places" component={Places} />
+                        <Route path="/payments" component={Payments} />
+                        <Route path="/players" component={Players} />
+                        <Route path="/user" component={User} />
                     </div>
                 </Router>
             </div>

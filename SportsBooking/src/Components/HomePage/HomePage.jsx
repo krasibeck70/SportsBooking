@@ -15,8 +15,6 @@ class HomePage extends React.Component {
 
     render() {
         const { user, places } = this.props;
-        console.log("this.props");
-        console.log(this.props);
         return (
             
             <div className="col-md-6 col-md-offset-3">

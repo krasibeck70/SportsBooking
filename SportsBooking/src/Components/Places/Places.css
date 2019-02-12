@@ -1,11 +1,17 @@
-body {
-    background-image: url('https://as00.epimg.net/futbol/imagenes/2017/09/11/champions/1505106380_965517_1505107263_noticia_normal.jpg');
-    background-size: cover; /* Resize the background image to cover the entire container */
-    background-repeat: no-repeat;  /* Do not repeat the image */
-    color: white;
+
+.container-fluid { max-width: 1200px; }
+
+.card {
+	background: #fff;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	
+}
+.card img {
+    width: 100%;
 }
 
-.cardImage{
-    width: 100%;
-    height: 100%;
+[class*="row"] {
+	margin-bottom: 1em;
+  justify-content: center;
 }
+

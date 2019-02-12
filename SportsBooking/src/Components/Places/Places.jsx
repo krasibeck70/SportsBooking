@@ -19,22 +19,26 @@ class Places extends React.Component {
         if (places.items) {
             var allPlaces = places.items.map((value, index) => {
                 return (
-                    <div className="col-lg-3">
-                        <div className="card" style={style}>
-                            <img className="card-img-top cardImage" src={value.image} alt="Card image cap" />
-                            <div className="card-body">
-                                <p className="card-text">{value.searchableText}</p>
-                            </div>
+
+                    <div className="card">
+                        <img className="card-img-top" src="//placehold.it/720x350" alt="Card image cap" />
+                        <div className="card-block">
+                            <h4 className="card-title">Card title</h4>
+                            <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                     </div>
+
                 )
             })
         }
         return (
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
-                    {places.loading && <div> <h1>Loading.....</h1></div>}
-                    {places.items && allPlaces}
+                    <div className="card-deck">
+                        {places.loading && <div> <h1>Loading.....</h1></div>}
+                        {places.items && allPlaces}
+                    </div>
                 </div>
             </div>
         );

@@ -4,7 +4,10 @@
     height: 30pt;
 }
 .active{
-    fill: green;
+    fill: green; 
+}
+.activeLi{
+    color: green;
 }
 
 .navbar .navbar-nav {
