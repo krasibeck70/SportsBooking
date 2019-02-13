@@ -2,6 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './places.css'
 import { userActions } from '../../_actions';
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
+
 
 class Places extends React.Component {
 
@@ -12,34 +17,30 @@ class Places extends React.Component {
     render() {
         const { user, places } = this.props;
         console.log("PLaces::");
-        console.log(this.props);
+        console.log(places);
         var style = {
             "width": "18rem"
         }
         if (places.items) {
             var allPlaces = places.items.map((value, index) => {
                 return (
-
-                    <div className="card">
-                        <img className="card-img-top" src="//placehold.it/720x350" alt="Card image cap" />
-                        <div className="card-block">
-                            <h4 className="card-title">Card title</h4>
-                            <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-
+                    <Card className="col-lg-3 customCard">
+                        <CardImg src={value.image} alt="Card image cap" />
+                        <CardBody>
+                            <CardTitle>{value.name}</CardTitle>
+                            <CardSubtitle>Card subtitle</CardSubtitle>
+                            <CardText className="cardBody">{value.searchableText.slice(0,100)} ...</CardText>
+                            
+                        </CardBody>
+                        <Button className="buttonCard">Show More</Button>
+                    </Card>
                 )
             })
         }
         return (
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="card-deck">
-                        {places.loading && <div> <h1>Loading.....</h1></div>}
-                        {places.items && allPlaces}
-                    </div>
-                </div>
+            <div className="container">
+                {places.loading && <div> <h1>Loading.....</h1></div>}
+                {places.items && allPlaces}
             </div>
         );
         // if (places.loading) {

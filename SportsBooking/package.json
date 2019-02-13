@@ -12,11 +12,13 @@
   "dependencies": {
     "history": "^4.6.3",
     "jquery": "^3.3.1",
-    "react": "^16.0.0",
+    "react": "^16.8.1",
     "react-dom": "^16.0.0",
+    "react-height": "^3.0.0",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.2",
     "react-svg": "^7.2.6",
+    "reactstrap": "^7.1.0",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0"

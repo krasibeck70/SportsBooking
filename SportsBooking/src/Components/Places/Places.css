@@ -1,17 +1,47 @@
-
-.container-fluid { max-width: 1200px; }
-
-.card {
-	background: #fff;
-	box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-	
+.container{
+    width: 80%;
 }
-.card img {
+.buttonCard{
+    background-color: green;
+    color: white;
+    margin-top: 10%;
+    margin-right: 90%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+.customCard{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1vw;
+    height: 20vw;
+    margin-bottom: 2%;
+    margin-left: 6%;
+    color: green;
+    object-fit: cover;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+.customCard>img{
+    margin-top: 4%;
     width: 100%;
+    height: 10vw;
+    object-fit: cover;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+.card {
+	background: -webkit-linear-gradient(#0b130b, #053105, rgb(7, 7, 6));
+	box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.cardBody{
+    font-size: 0.7vw;
 }
 
-[class*="row"] {
-	margin-bottom: 1em;
-  justify-content: center;
-}
+
 

@@ -34,7 +34,7 @@ class Navbar extends React.Component {
         
         return (
             <div>
-                {!user && <Router history={history}><Redirect to="/login"/></Router>}
+                {/* {!user && <Router history={history}><Redirect to="/login"/></Router>} */}
                 <nav className="navbar navbar-inverse">
                     <div className="container-fluid">
                         {/* <div className="navbar-header">
