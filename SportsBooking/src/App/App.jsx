@@ -30,20 +30,23 @@ class App extends React.Component {
         const { alert } = this.props;
         return (
             <div>
-                <Navbar></Navbar>
-                <Router history={history}>
-                    <div>
-                        
-                        <PrivateRoute exact path="/" component={LoginPage} />
-                        <PrivateRoute exact path="/home" component={HomePage} />
-                        <Route path="/login" component={LoginPage} />
-                        <Route path="/register" component={RegisterPage} />
-                        <Route path="/places" component={Places} />
-                        <Route path="/payments" component={Payments} />
-                        <Route path="/players" component={Players} />
-                        <Route path="/user" component={User} />
-                    </div>
-                </Router>
+                <div>
+                    {/* <Navbar></Navbar> */}
+                </div>
+                <div className="main">
+                    <Router history={history}>
+                        <div>
+                            <PrivateRoute exact path="/" component={LoginPage} />
+                            <PrivateRoute exact path="/home" component={HomePage} />
+                            <Route path="/login" component={LoginPage} />
+                            <Route path="/register" component={RegisterPage} />
+                            <Route path="/places" component={Places} />
+                            <Route path="/payments" component={Payments} />
+                            <Route path="/players" component={Players} />
+                            <Route path="/user" component={User} />
+                        </div>
+                    </Router>
+                </div>
             </div>
         );
     }

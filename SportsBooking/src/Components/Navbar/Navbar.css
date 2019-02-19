@@ -19,3 +19,10 @@
   .navbar .navbar-collapse {
     text-align: center;
   }
+  .navbar {
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0;
+    width: 100%;
+    flex: 1;
+
+  }

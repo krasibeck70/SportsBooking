@@ -5,6 +5,7 @@ import './index.css';
 
 import { store } from './_helpers';
 import { App } from './App'
+import { Navbar } from './Components/Navbar';
 
 
 // setup fake backend
@@ -13,7 +14,15 @@ configureFakeBackend();
 
 render(
     <Provider store={store}>
-        <App />
+            <Navbar />
     </Provider>,
-    document.getElementById('app')
+    document.getElementById('nav') 
+);
+render(
+    <Provider store={store}>
+        <div>
+            <App />
+        </div>
+    </Provider>,
+    document.getElementById('app') 
 );

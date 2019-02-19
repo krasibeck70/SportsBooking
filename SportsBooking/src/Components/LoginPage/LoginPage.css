@@ -1,0 +1,102 @@
+.logo{
+    margin-top: -1in !important;
+    
+}
+.title1{
+    margin-top: 0in !important;
+    margin-bottom: -0.25in !important;
+    color:rgb(29, 185, 85)
+}
+.title2{
+    color:rgb(29, 185, 85);
+    font-weight: bold;
+    margin-bottom: 0.2in !important;
+}
+.form{
+    margin: 0 auto;
+    float: none;
+}
+.username{
+    background-color: rgb(155, 155, 155);
+    border-radius: 16.5pt;
+    opacity: 0.2;
+    width: 225pt;
+    height: 25pt;
+    color: rgb(155, 155, 155);
+    font-size: 14pt;
+    border: none;
+}
+.usernameIcon{
+    margin-top: -0.255in !important;
+    margin-left: -2.5in !important;
+}
+.passwordIcon{
+    margin-top: -0.255in !important;
+    margin-left: -2.5in !important;
+}
+
+.password{
+    background-color: rgb(155, 155, 155);
+    border-radius: 16.5pt;
+    opacity: 0.2;
+    width: 225pt;
+    height: 25pt;
+    margin-top: 0.2in;
+    color: rgb(155, 155, 155);
+    font-size: 14pt;
+    border: none;
+}
+
+::placeholder{
+    color: black;
+    opacity: 1;
+    font-weight: bold;
+}
+
+.logIn{
+    background-color: rgb(29, 185, 84);
+    width: 156pt;
+    height: 34pt;
+    border-radius: 16.5pt;
+    margin-top: 20pt;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    font-size: 16pt;
+}
+.forgotPassword{
+    color: rgb(155, 155, 155);
+    opacity: 0.6;
+    font-size: 11pt;
+}
+.loginWith{
+    margin-top: 15pt !important;
+    color: rgb(255, 255, 255);
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.fb{
+    width: 30pt;
+    height: 30pt;
+    margin-left: 75pt;
+    margin-top: -10pt;
+}
+.goog{
+    width: 30pt;
+    height: 30pt;
+    margin-left: 120pt;
+    margin-top: -30pt;
+}
+
+.notAccount{
+    margin-top: 14pt !important;
+    color: rgb(255, 255, 255);
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.signUp{
+    margin-top: 14pt !important;
+    color: rgb(255, 255, 255);
+    font-size: 15pt;
+    font-family: Helvetica;
+    margin-top: -15pt !important;
+}

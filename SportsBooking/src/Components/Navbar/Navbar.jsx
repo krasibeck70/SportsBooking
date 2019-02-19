@@ -18,6 +18,9 @@ class Navbar extends React.Component {
         console.log(location);
         var id = "#" + location.pathname.replace('/','');
         console.log(id)
+        if (id == '#login' || id == '#register') {
+            $('#nav').hide();
+        }
         $(id).addClass('active');
         $(id).parent().parent().addClass('activeLi')
         
@@ -35,12 +38,11 @@ class Navbar extends React.Component {
         return (
             <div>
                 {/* {!user && <Router history={history}><Redirect to="/login"/></Router>} */}
-                <nav className="navbar navbar-inverse">
-                    <div className="container-fluid">
+                <nav className="navbar navbar-inverse navbar-fixed-top">
                         {/* <div className="navbar-header">
                             <a className="navbar-brand" href="/"></a>
                         </div> */}
-                        <div className="collapse navbar-collapse navbar-ex1-collapse">
+                        <div className="navbar-collapse collapse">
                             <ul className="nav navbar-nav">
                                 <li><a href="/home"><IconSVG id="home" onClick={() => {this.onClick("#calendar")}} className="iconStadium" src="../../../public/calendar.svg"></IconSVG></a><span>calendar</span></li>
                                 <li><a href="/payments"><IconSVG id="payments" onClick={() => {this.onClick("#card")}} className="iconStadium" src="../../../public/credit-card.svg"></IconSVG></a>payments</li>
@@ -56,8 +58,6 @@ class Navbar extends React.Component {
                                 <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span> Logout</a></li>
                             </div>} */}
                         </div>
-
-                    </div>
                 </nav>
             </div>
         );

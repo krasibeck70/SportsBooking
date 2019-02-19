@@ -29,18 +29,23 @@ class Places extends React.Component {
                         <CardBody>
                             <CardTitle>{value.name}</CardTitle>
                             <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText className="cardBody">{value.searchableText.slice(0,100)} ...</CardText>
-                            
+                            <div>
+                                <CardText className="cardBody">{value.searchableText.slice(0, 100)} ...</CardText>
+                            </div>
                         </CardBody>
-                        <Button className="buttonCard">Show More</Button>
+                        <button className="buttonCard btn btn">Show More</button>
                     </Card>
+
                 )
             })
         }
         return (
-            <div className="container">
-                {places.loading && <div> <h1>Loading.....</h1></div>}
-                {places.items && allPlaces}
+            <div className="container-fluid">
+                <div className="row">
+                    {places.loading && <div> <h1>Loading.....</h1></div>}
+                    {places.items && allPlaces}
+                </div>
+
             </div>
         );
         // if (places.loading) {
