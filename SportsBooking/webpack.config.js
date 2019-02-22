@@ -16,22 +16,29 @@ module.exports = {
             {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                loader:[ 'style-loader', 'css-loader' ]
+                loader: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                loaders: [
+                    'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+                    'image-webpack-loader',
+                ],
             },
             {
                 test: /\.svg$/,
                 use: [
-                  {
-                    loader: "babel-loader"
-                  },
-                  {
-                    loader: "react-svg-loader",
-                    options: {
-                      jsx: true // true outputs JSX tags
+                    {
+                        loader: "babel-loader"
+                    },
+                    {
+                        loader: "react-svg-loader",
+                        options: {
+                            jsx: true // true outputs JSX tags
+                        }
                     }
-                  }
                 ]
-              }
+            }
 
         ]
     },

@@ -1,6 +1,6 @@
 body {
-    /* background-image: url('https://as00.epimg.net/futbol/imagenes/2017/09/11/champions/1505106380_965517_1505107263_noticia_normal.jpg'); */
-    background:  -webkit-linear-gradient(#121d2b, #041d35, rgb(4, 11, 44));
+    background-image: url('../public/Background.png');
+    /* background:  -webkit-linear-gradient(#121d2b, #041d35, rgb(4, 11, 44)); */
     background-size: cover; /* Resize the background image to cover the entire container */
     background-repeat: no-repeat;  /* Do not repeat the image */
     background-attachment: fixed;
@@ -9,3 +9,4 @@ body {
 .main{
     margin-top: 10%;
 }
+

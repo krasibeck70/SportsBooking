@@ -13,6 +13,8 @@ class Navbar extends React.Component {
     constructor(){
         super();
     }
+
+
     componentDidMount(){
         console.log("navbar");
         console.log(location);
@@ -20,11 +22,14 @@ class Navbar extends React.Component {
         console.log(id)
         if (id == '#login' || id == '#register') {
             $('#nav').hide();
+        }else{
+            $('#nav').show();
         }
         $(id).addClass('active');
         $(id).parent().parent().addClass('activeLi')
         
     }
+    
     // onClick(e) {
         
     //     $('.active').removeClass('active');

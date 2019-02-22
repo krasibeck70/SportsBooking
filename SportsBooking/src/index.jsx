@@ -14,12 +14,6 @@ configureFakeBackend();
 
 render(
     <Provider store={store}>
-            <Navbar />
-    </Provider>,
-    document.getElementById('nav') 
-);
-render(
-    <Provider store={store}>
         <div>
             <App />
         </div>

@@ -30,13 +30,13 @@ class App extends React.Component {
         const { alert } = this.props;
         return (
             <div>
-                <div>
-                    {/* <Navbar></Navbar> */}
+                <div id="nav">
+                    <Navbar></Navbar>
                 </div>
                 <div className="main">
                     <Router history={history}>
                         <div>
-                            <PrivateRoute exact path="/" component={LoginPage} />
+                            
                             <PrivateRoute exact path="/home" component={HomePage} />
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />

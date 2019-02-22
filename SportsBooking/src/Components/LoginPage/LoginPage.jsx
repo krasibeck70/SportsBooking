@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import IconSVG from 'react-svg'
 import { userActions } from '../../_actions';
 import './LoginPage.css'
+import { Loading } from '../Loading/Loading';
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -29,9 +30,10 @@ class LoginPage extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
+        console.log();
         this.setState({ submitted: true });
         const { username, password } = this.state;
+        console.log(username, password);
         const { dispatch } = this.props;
         if (username && password) {
             dispatch(userActions.login(username, password));
@@ -41,19 +43,22 @@ class LoginPage extends React.Component {
     render() {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
+
         return (
+            
             <div className="container-fluid text-center">
+                {loggingIn && <div> <Loading></Loading> </div>}
                 <IconSVG className="logo" src="../../../public/SBLogo-01.svg"></IconSVG>
                 <div>
                     <h2 className="title1">Sports</h2>
                     <h1 className="title2">Booking</h1>
                 </div>
-                <div class="input-group text-center form">
-                    <input type="text" class="username text-center" placeholder="username" />
+                <div className="input-group text-center form">
+                    <input type="text" className="username text-center" placeholder="username" name="username" value={username} onChange={this.handleChange} />
                     <IconSVG className="usernameIcon" src="../../../public/username.svg"></IconSVG>
-                    <input type="text" class="password text-center" placeholder="password" />
+                    <input type="password" className="password text-center" placeholder="password" name="password" value={password} onChange={this.handleChange} />
                     <IconSVG className="passwordIcon" src="../../../public/password.svg"></IconSVG>
-                    <button className="text-center logIn">Log in</button>
+                    <button className="text-center logIn" onClick={this.handleSubmit}>Log in</button>
                     <br></br>
                     <a href="#" className="forgotPassword">forgot your password?</a>
                     <br></br>
@@ -63,10 +68,9 @@ class LoginPage extends React.Component {
                     <IconSVG className="goog" src="../../../public/google-plus-3.svg"></IconSVG>
                     <br></br>
                     <h4 href="#" className="notAccount">Don't have an account?</h4>
-                    <a className="signUp">Sign Up</a>
+                    <a href='/register' className="signUp">Sign Up</a>
                 </div>
             </div>
-
         );
 
         //     return (
