@@ -3,10 +3,17 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../../_actions';
+import { Loading } from '../Loading';
 
 class HomePage extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(userActions.getAll());
+    constructor(){
+        super();
+        this.state = {
+            loading: true
+        }
+    }
+    componentWillMount(){
+        setTimeout(() =>{this.setState({loading:false});},500)
     }
 
     handleDeleteUser(id) {
@@ -15,31 +22,13 @@ class HomePage extends React.Component {
 
     render() {
         const { user, places } = this.props;
+        var loading = this.state.loading;
         return (
             
             <div className="col-md-6 col-md-offset-3">
+            {loading && <div> <Loading></Loading> </div>}
                 <h1>Hi {user.firstName}!</h1>
-                <p>You're logged in with React!!</p>
-                <h3>All registered users:</h3>
-                {places.loading && <em>Loading users...</em>}
-                {places.error && <span className="text-danger">ERROR: {places.error}</span>}
-                {places.items &&
-                    <ul>
-                        {places.items.map((user, index) =>
-                            <li key={user.id}>
-                                {user.firstName + ' ' + user.lastName}
-                                {
-                                    user.deleting ? <em> - Deleting...</em>
-                                    : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                                    : <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
-                                }
-                            </li>
-                        )}
-                    </ul>
-                }
-                <p>
-                    <Link to="/login">Logout</Link>
-                </p>
+                <p>You're member of SportsBooking</p>
             </div>
         );
     }

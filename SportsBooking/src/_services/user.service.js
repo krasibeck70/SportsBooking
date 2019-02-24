@@ -61,13 +61,23 @@ function getById(id) {
 }
 
 function register(user) {
+    // const requestOptions = {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(user)
+    // };
     const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
-    };
+        username: user.username,
+        password: user.password,
+        telephone: user.telephone
+      }
+      const configOptions = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
 
-    return fetch(`${config.apiUrl}/users/register`, requestOptions).then(handleResponse).then((result) =>{
+    return Axios.post(`${config.apiUrl}/auth/register`, requestOptions,configOptions).then(handleResponse).then((result) =>{
         var places = {};
         places = result;
         localStorage.setItem('places', JSON.stringify(places));

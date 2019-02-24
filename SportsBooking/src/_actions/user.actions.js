@@ -41,13 +41,15 @@ function logout() {
 
 function register(user) {
     return dispatch => {
+        console.log("register action::")
+        console.log(user)
         dispatch(request(user));
 
         userService.register(user)
             .then(
                 user => { 
                     dispatch(success());
-                    history.push('/login');
+                    history.push('/user');
                     dispatch(alertActions.success('Registration successful'));
                 },
                 error => {

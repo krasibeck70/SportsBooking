@@ -6,6 +6,7 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import { Loading } from '../Loading';
 
 
 class Places extends React.Component {
@@ -15,9 +16,10 @@ class Places extends React.Component {
     }
 
     render() {
+
         const { user, places } = this.props;
         console.log("PLaces::");
-        console.log(places);
+        console.log(this.props);
         var style = {
             "width": "18rem"
         }
@@ -42,7 +44,8 @@ class Places extends React.Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    {places.loading && <div> <h1>Loading.....</h1></div>}
+                {/* <div> <Loading></Loading></div> */}
+                    {places.loading && <div> <Loading></Loading></div>}
                     {places.items && allPlaces}
                 </div>
 

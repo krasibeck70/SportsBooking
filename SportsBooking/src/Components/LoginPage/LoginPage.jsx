@@ -16,11 +16,15 @@ class LoginPage extends React.Component {
         this.state = {
             username: '',
             password: '',
-            submitted: false
+            submitted: false,
+            loading: true
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    componentWillMount(){
+        setTimeout(() =>{this.setState({loading:false});},500)
     }
 
     handleChange(e) {
@@ -42,12 +46,14 @@ class LoginPage extends React.Component {
 
     render() {
         const { loggingIn } = this.props;
-        const { username, password, submitted } = this.state;
+        const { username, password, submitted,loading } = this.state;
 
         return (
             
             <div className="container-fluid text-center">
                 {loggingIn && <div> <Loading></Loading> </div>}
+                {loading && <div> <Loading></Loading> </div>}
+                {/* <div> <Loading></Loading> </div> */}
                 <IconSVG className="logo" src="../../../public/SBLogo-01.svg"></IconSVG>
                 <div>
                     <h2 className="title1">Sports</h2>

@@ -21,7 +21,7 @@
 .username{
     background-color: rgb(155, 155, 155);
     border-radius: 16.5pt;
-    opacity: 0.8;
+    opacity: 0.2;
     width: 225pt;
     height: 25pt;
     color: white;
@@ -40,7 +40,7 @@
 .password{
     background-color: rgb(155, 155, 155);
     border-radius: 16.5pt;
-    opacity: 0.8;
+    opacity: 0.2;
     width: 225pt;
     height: 25pt;
     margin-top: 0.2in;
@@ -49,13 +49,9 @@
     border: none;
 }
 
-::placeholder{
-    color: black;
-    opacity: 1;
-    font-weight: bold;
-}
 
-.logIn{
+.register{
+    color: white;
     background-color: rgb(29, 185, 84);
     width: 156pt;
     height: 34pt;
@@ -64,6 +60,23 @@
     font-family: Arial, Helvetica, sans-serif;
     border: none;
     font-size: 16pt;
+}
+.register:hover{
+    background-color: rgb(3, 228, 82);
+}
+.logIn{
+    color: white;
+    background-color: rgb(29, 185, 84);
+    width: 156pt;
+    height: 34pt;
+    border-radius: 16.5pt;
+    margin-top: 20pt;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    font-size: 16pt;
+}
+.logIn:hover{
+    background-color: rgb(3, 228, 82);
 }
 .forgotPassword{
     color: rgb(155, 155, 155);
@@ -101,4 +114,11 @@
     font-size: 15pt;
     font-family: Helvetica;
     margin-top: -15pt !important;
+}
+::placeholder{
+    color: white;
+    opacity: 1 !important;   
+}
+.backLogin{
+    font-size: 15pt;
 }

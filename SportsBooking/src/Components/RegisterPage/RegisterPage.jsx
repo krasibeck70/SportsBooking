@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import IconSVG from 'react-svg'
 import './RegisterPage.css';
+import { Loading } from '../Loading';
 
 import { userActions } from '../../_actions';
 
@@ -12,16 +13,19 @@ class RegisterPage extends React.Component {
 
         this.state = {
             user: {
-                firstName: '',
-                lastName: '',
                 username: '',
-                password: ''
+                password: '',
+                telephone: ''
             },
-            submitted: false
+            submitted: false,
+            loading: true
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    componentWillMount(){
+        setTimeout(() =>{this.setState({loading:false});},500)
     }
 
     handleChange(event) {
@@ -37,38 +41,46 @@ class RegisterPage extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
+        
         this.setState({ submitted: true });
         const { user } = this.state;
         const { dispatch } = this.props;
-        if (user.firstName && user.lastName && user.username && user.password) {
+        console.log(user);
+        if (user.username && user.password) {
             dispatch(userActions.register(user));
         }
     }
 
     render() {
         const { registering } = this.props;
-        const { user, submitted } = this.state;
+        const { user, submitted,loading} = this.state;
 
         return (
             <div className="container-fluid text-center">
+                {registering && <div> <Loading></Loading> </div>}
+                {loading && <div> <Loading></Loading> </div>}
                 <IconSVG className="logo" src="../../../public/SBLogo-01.svg"></IconSVG>
                 <div>
                     <h2 className="title1">Sports</h2>
                     <h1 className="title2">Booking</h1>
                 </div>
-                <div className="input-group text-center form">
-                    <input type="text" className="username text-center" placeholder="username" name="username" value="" onChange={this.handleChange} />
-                    <IconSVG className="usernameIcon" src="../../../public/username.svg"></IconSVG>
-                    <input type="password" className="password text-center" placeholder="password" name="password" value="" onChange={this.handleChange} />
-                    <IconSVG className="passwordIcon" src="../../../public/password.svg"></IconSVG>
-                    <input type="password" className="password text-center" placeholder="confirm password" name="password" onChange={this.handleChange} />
-                    <IconSVG className="passwordIcon" src="../../../public/password.svg"></IconSVG>
-                    <input type="text" className="username text-center" placeholder="Phone" name="username" onChange={this.handleChange} />
-                    <IconSVG className="usernameIcon" src="../../../public/username.svg"></IconSVG>
-                    <button className="text-center logIn" onClick={this.handleSubmit}>Register</button>
-                    <a href="/login"><button className="text-center logIn">Login</button></a>
-                </div>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="input-group text-center form">
+                        <input type="text" className="username text-center" value={user.username} placeholder="username" name="username" onChange={this.handleChange} />
+                        <IconSVG className="usernameIcon" src="../../../public/username.svg"></IconSVG>
+                        <input type="password" className="password text-center" value={user.password} placeholder="password" name="password" onChange={this.handleChange} />
+                        <IconSVG className="passwordIcon" src="../../../public/password.svg"></IconSVG>
+                        <input type="password" className="password text-center" value={user.password} placeholder="confirm password" name="password" onChange={this.handleChange} />
+                        <IconSVG className="usernameIcon" src="../../../public/password.svg"></IconSVG>
+                        <input type="text" className="password text-center" value={user.telephone} placeholder="Phone" name="telephone" onChange={this.handleChange} />
+                        <IconSVG className="passwordIcon" src="../../../public/username.svg"></IconSVG>
+                        <button className="text-center register">Register</button>
+                        <br></br>
+                        
+                    </div>
+                </form>
+                <br></br>
+                <a className="backLogin" href="/login">Login</a>
 
             </div>
         );

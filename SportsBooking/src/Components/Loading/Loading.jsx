@@ -5,28 +5,41 @@ import $ from 'jquery'
 import './Loading.css';
 
 class Loading extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            currentImageCount: 1,
+            intervalId: ''
+        }
+        this.changeNumber = this.changeNumber.bind(this);
+    }
+    componentDidMount() {
+        var intervalId = setInterval(this.changeNumber, 100);
 
-    // componentDidMount() {
-    //     console.log("navbar");
-    //     console.log(location);
-    //     var id = "#" + location.pathname.replace('/', '');
-    //     console.log(id)
-    //     if (id == '#login' || id == '#register') {
-    //         $('#nav').hide();
-    //     } else {
-    //         $('#nav').show();
-    //     }
-    //     $(id).addClass('active');
-    //     $(id).parent().parent().addClass('activeLi')
+        this.setState({ intervalId: intervalId });
+    }
 
-    // }
+    changeNumber() {
+        if (this.state.currentImageCount === 4) {
+            this.setState({ currentImageCount: 1});
+        }else{
+            this.setState({ currentImageCount: this.state.currentImageCount + 1 });
+        }
+        
+        if (this.props.loading) {
+            clearInterval(this.state.intervalId);
+        }
+        
+    }
+
     render() {
+        console.log("render")
+        console.log(this.props.loading)
         const { user } = this.props;
+        var src = '../../../public/logo' + this.state.currentImageCount + '.png' 
         return (
             <div className="loading">
-                <h1>
-                    Loading...
-                </h1>
+                <img id="1" className="showLogo" src={src}></img>
             </div>
         );
     }

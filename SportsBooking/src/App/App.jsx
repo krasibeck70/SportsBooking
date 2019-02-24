@@ -18,7 +18,7 @@ import { User } from '../Components/User';
 class App extends React.Component {
     constructor(props) {
         super(props);
-
+        
         const { dispatch } = this.props;
         history.listen((location, action) => {
             // clear alert on location change
@@ -36,7 +36,6 @@ class App extends React.Component {
                 <div className="main">
                     <Router history={history}>
                         <div>
-                            
                             <PrivateRoute exact path="/home" component={HomePage} />
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />
