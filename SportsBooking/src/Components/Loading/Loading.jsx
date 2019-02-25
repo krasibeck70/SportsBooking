@@ -20,10 +20,11 @@ class Loading extends React.Component {
     }
 
     changeNumber() {
-        if (this.state.currentImageCount === 4) {
+        var currentState = this.state.currentImageCount;
+        if (currentState === 4) {
             this.setState({ currentImageCount: 1});
         }else{
-            this.setState({ currentImageCount: this.state.currentImageCount + 1 });
+            this.setState({ currentImageCount: currentState + 1 });
         }
         
         if (this.props.loading) {
@@ -33,8 +34,6 @@ class Loading extends React.Component {
     }
 
     render() {
-        console.log("render")
-        console.log(this.props.loading)
         const { user } = this.props;
         var src = '../../../public/logo' + this.state.currentImageCount + '.png' 
         return (

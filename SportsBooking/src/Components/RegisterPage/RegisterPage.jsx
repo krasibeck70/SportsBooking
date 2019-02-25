@@ -68,12 +68,24 @@ class RegisterPage extends React.Component {
                     <div className="input-group text-center form">
                         <input type="text" className="username text-center" value={user.username} placeholder="username" name="username" onChange={this.handleChange} />
                         <IconSVG className="usernameIcon" src="../../../public/username.svg"></IconSVG>
+                        {submitted && !user.username &&
+                            <div className='errorHandlingPassword'>Username is requiered</div>
+                        }
                         <input type="password" className="password text-center" value={user.password} placeholder="password" name="password" onChange={this.handleChange} />
                         <IconSVG className="passwordIcon" src="../../../public/password.svg"></IconSVG>
+                        {submitted && !user.password &&
+                            <div className='errorHandlingPassword'>Password is requiered</div>
+                        }
                         <input type="password" className="password text-center" value={user.password} placeholder="confirm password" name="password" onChange={this.handleChange} />
                         <IconSVG className="usernameIcon" src="../../../public/password.svg"></IconSVG>
+                        {submitted && !user.password &&
+                            <div className='errorHandlingPassword'>Password doesn't match</div>
+                        }
                         <input type="text" className="password text-center" value={user.telephone} placeholder="Phone" name="telephone" onChange={this.handleChange} />
                         <IconSVG className="passwordIcon" src="../../../public/username.svg"></IconSVG>
+                        {submitted && !user.telephone &&
+                            <div className='errorHandlingPassword'>Phone is requiered</div>
+                        }
                         <button className="text-center register">Register</button>
                         <br></br>
                         

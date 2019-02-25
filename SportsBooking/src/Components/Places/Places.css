@@ -36,12 +36,58 @@
     border-top-right-radius: 5%;
 }
 .card {
-	background: -webkit-linear-gradient(#0b130b, #053105, rgb(7, 7, 6));
-	box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    background: -webkit-linear-gradient(#0b130b, #053105, rgb(7, 7, 6));
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .cardBody{
     font-size: 0.7vw;
 }
-
-
-
+.jumbotron{
+    background-size: cover;
+    margin-top: 4%;
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+.search{
+    background-color: rgb(155, 155, 155);
+    border-radius: 16.5pt;
+    opacity: 0.8;
+    width: 225pt;
+    height: 25pt;
+    color: white;
+    font-size: 14pt;
+    border: none;
+    padding-left: 3%;
+}
+.searchIcon{
+    fill: white;
+    margin-top: -1.85em;
+    margin-left: 1em;
+    width: 15pt;
+}
+.search::placeholder{
+    color: white;
+}
+.private{
+    background-color: rgb(145, 150, 168);
+    opacity: 0.8;
+    width: 150pt;
+    border-radius: 16.5pt;
+    margin-left: 68%;
+    margin-top: -3.85em;
+    border: none;
+}
+.public{
+    background-color: rgb(145, 150, 168);
+    opacity: 0.8;
+    width: 150pt;
+    margin-left: 2.5%;
+    border-radius: 16.5pt;
+    margin-top: -3.85em;
+    border: none;
+}

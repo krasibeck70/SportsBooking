@@ -19,6 +19,7 @@
     float: none;
 }
 .username{
+    /* box-shadow: 0 0 25px #CC0000; */
     background-color: rgb(155, 155, 155);
     border-radius: 16.5pt;
     opacity: 0.8;
@@ -33,6 +34,7 @@
     margin-left: -2.5in !important;
 }
 .passwordIcon{
+    fill: red;
     margin-top: -0.255in !important;
     margin-left: -2.5in !important;
 }
@@ -101,4 +103,11 @@
     font-size: 15pt;
     font-family: Helvetica;
     margin-top: -15pt !important;
+}
+
+.errorHandlingUsername{
+    color: red;
+}
+.errorHandlingPassword{
+    color: red;
 }

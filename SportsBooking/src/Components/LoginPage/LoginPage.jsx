@@ -23,8 +23,8 @@ class LoginPage extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    componentWillMount(){
-        setTimeout(() =>{this.setState({loading:false});},500)
+    componentWillMount() {
+        setTimeout(() => { this.setState({ loading: false }); }, 500)
     }
 
     handleChange(e) {
@@ -46,10 +46,10 @@ class LoginPage extends React.Component {
 
     render() {
         const { loggingIn } = this.props;
-        const { username, password, submitted,loading } = this.state;
+        const { username, password, submitted, loading } = this.state;
 
         return (
-            
+
             <div className="container-fluid text-center">
                 {loggingIn && <div> <Loading></Loading> </div>}
                 {loading && <div> <Loading></Loading> </div>}
@@ -60,10 +60,20 @@ class LoginPage extends React.Component {
                     <h1 className="title2">Booking</h1>
                 </div>
                 <div className="input-group text-center form">
-                    <input type="text" className="username text-center" placeholder="username" name="username" value={username} onChange={this.handleChange} />
-                    <IconSVG className="usernameIcon" src="../../../public/username.svg"></IconSVG>
-                    <input type="password" className="password text-center" placeholder="password" name="password" value={password} onChange={this.handleChange} />
-                    <IconSVG className="passwordIcon" src="../../../public/password.svg"></IconSVG>
+                    <div>
+                        <input type="text" className="username text-center" placeholder="username" name="username" value={username} onChange={this.handleChange} />
+                        <IconSVG className="usernameIcon" src="../../../public/username.svg"></IconSVG>
+                        {submitted && !username &&
+                            <div className='errorHandlingUsername'>Username is required</div>
+                        }
+                    </div>
+                    <div className='form-password'>
+                        <input type="password" className="password text-center" placeholder="password" name="password" value={password} onChange={this.handleChange} />
+                        <IconSVG className="passwordIcon" src="../../../public/password.svg"></IconSVG>
+                        {submitted && !password &&
+                            <div className='errorHandlingPassword'>Password is requiered</div>
+                        }
+                    </div>
                     <button className="text-center logIn" onClick={this.handleSubmit}>Log in</button>
                     <br></br>
                     <a href="#" className="forgotPassword">forgot your password?</a>

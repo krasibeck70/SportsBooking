@@ -4,7 +4,10 @@ import { userActions } from '../../_actions';
 import $ from 'jquery'
 
 class User extends React.Component {
-
+    constructor(){
+        super();
+        this.logout = this.logout.bind(this);
+    }
     componentDidMount() {
         console.log("navbar");
         console.log(location);
@@ -17,13 +20,16 @@ class User extends React.Component {
         }
         $(id).addClass('active');
         $(id).parent().parent().addClass('activeLi')
-
+    }
+    logout() {
+        userActions.logout();
+        $('#nav').hide();
     }
     render() {
         const { user } = this.props;
         return (
             <div className="container text-center">
-                <a href="/login" className="btn btn-danger">Logout</a>
+                <button onClick={this.logout} className="btn btn-danger">Logout</button>
             </div>
         );
     }
