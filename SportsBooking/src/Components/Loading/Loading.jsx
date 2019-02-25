@@ -15,7 +15,6 @@ class Loading extends React.Component {
     }
     componentDidMount() {
         var intervalId = setInterval(this.changeNumber, 100);
-
         this.setState({ intervalId: intervalId });
     }
 

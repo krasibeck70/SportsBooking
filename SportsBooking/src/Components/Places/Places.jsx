@@ -2,18 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './places.css'
 import { userActions } from '../../_actions';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
-} from 'reactstrap';
 import { Loading } from '../Loading';
 import IconSVG from 'react-svg'
 import $ from 'jquery'
 
 
 class Places extends React.Component {
-    constructor(){
+    constructor() {
         super();
+
         this.areaPrivate = this.areaPrivate.bind(this);
         this.areaPublic = this.areaPublic.bind(this);
         this.search = this.search.bind(this);
@@ -21,33 +18,34 @@ class Places extends React.Component {
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
     }
-    areaPrivate(e){
+    areaPrivate(e) {
         var button = $('.private')
         var color = button.css('background-color');
         if (color.includes('145')) {
-            button.css('background-color','rgb(29, 185, 85)')    
-        }else{
-            button.css('background-color','rgb(145, 150, 168)')   
+            button.css('background-color', 'rgb(29, 185, 85)')
+        } else {
+            button.css('background-color', 'rgb(145, 150, 168)')
         }
-        
+
     }
-    areaPublic(e){
+    areaPublic(e) {
         var button = $('.public')
         var color = button.css('background-color');
         if (color.includes('145')) {
-            button.css('background-color','rgb(29, 185, 85)')    
-        }else{
-            button.css('background-color','rgb(145, 150, 168)')   
+            button.css('background-color', 'rgb(29, 185, 85)')
+        } else {
+            button.css('background-color', 'rgb(145, 150, 168)')
         }
     }
-    search(){
+    search() {
         var text = $('.search').val();
         var { places } = this.props;
-        console.log("krasi");
-        places.items.map((value,index) => {
-            if (value.searchableText.includes(text)) {
-                var id = "#"  + value.id
-            }else{
+        places.items.map((value, index) => {
+            var id = "#" + value.id;
+            if (value.searchableText.toLocaleLowerCase().includes(text.toLocaleLowerCase())
+            || value.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())) {
+                $(id).show();
+            } else {
                 $(id).hide();
             }
         })
@@ -64,11 +62,20 @@ class Places extends React.Component {
         if (places.items) {
             var allPlaces = places.items.map((value, index) => {
                 var style = {
-                    'backgroundImage': 'url("' + value.image + ")"
+                    'backgroundImage': 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0, #000000 110%), url("' + value.image + ")"
                 }
                 return (
-                    <div className="col-lg-4">
-                        <div id={value.id} className='jumbotron' style={style}></div>
+                    <div key={value.id} id={value.id} className="col-lg-4">
+                        <div className='jumbotron' style={style}>
+                            <div className="text-center">
+                                <span className="nameOfPlace">{value.name}</span>
+                                <span className="freeSpot">Свободни места: <span className="numbers">11/12</span> </span>
+                                <span className="dateTime">Дата: <span className="data">Неделя 11/12/2019</span> <span className="numbers">12:00</span> </span>
+                            </div>
+                            <span className="registerOnEvent">Записан </span>
+                            <IconSVG className="checkRegister" src='../../../public/checked.svg'></IconSVG>
+                            
+                        </div>
                     </div>
                 )
             })
