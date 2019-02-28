@@ -1,7 +1,15 @@
+
+
 .logo{
     margin-top: -1in !important;
     
 }
+@media only screen and (min-width: 900px) {
+
+    .container-fluid {
+       margin-top: 10%;
+    }
+  } 
 .title1{
     margin-top: 0in !important;
     margin-bottom: -0.25in !important;

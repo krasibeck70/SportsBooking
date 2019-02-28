@@ -14,8 +14,12 @@ class Loading extends React.Component {
         this.changeNumber = this.changeNumber.bind(this);
     }
     componentDidMount() {
-        var intervalId = setInterval(this.changeNumber, 100);
-        this.setState({ intervalId: intervalId });
+        this.intervalId = setInterval(this.changeNumber, 100);
+        //this.setState({ intervalId: intervalId });
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.intervalId);
     }
 
     changeNumber() {
@@ -27,7 +31,7 @@ class Loading extends React.Component {
         }
         
         if (this.props.loading) {
-            clearInterval(this.state.intervalId);
+            clearInterval(this.intervalId);
         }
         
     }
